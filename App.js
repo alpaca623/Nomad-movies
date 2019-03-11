@@ -1,7 +1,8 @@
 import React from "react";
+import { Text } from "react-native";
 import { AppLoading, Font } from "expo";
 import { IonIcons } from "@expo/vector-icons";
-import TabNavigation from "./Navigation/TabNavigation";
+import MainNavigation from "./Navigation/MainNavigation";
 
 export default class App extends React.Component {
   state = {
@@ -24,7 +25,11 @@ export default class App extends React.Component {
     const { loaded } = this.state;
     if (loaded) {
       // 앱 로드 완료
-      return <TabNavigation />;
+      return (
+        <>
+          <MainNavigation />
+        </>
+      );
     } else {
       // 앱 로드 진행중
       return (

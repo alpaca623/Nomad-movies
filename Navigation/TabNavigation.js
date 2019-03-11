@@ -10,16 +10,19 @@ import TabBarIcon from "../Components/TabBarIcon";
 
 // 첫번째 매개변수는 RouteConfigs이고,
 // 두번째 매개변수는 BottomTabNavigatorConfig이다.
+// https://reactnavigation.org/docs/en/bottom-tab-navigator.html
 const TabNavigation = createBottomTabNavigator(
   {
     Movie: {
       screen: MovieScreen,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
-          <TabBarIcon
-            focused={focused}
-            name={Platform.OS === "ios" ? "ios-film" : "md-film"}
-          />
+          <>
+            <TabBarIcon
+              focused={focused}
+              name={Platform.OS === "ios" ? "ios-film" : "md-film"}
+            />
+          </>
         )
       }
     },
