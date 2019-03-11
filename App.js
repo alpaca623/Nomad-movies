@@ -1,7 +1,7 @@
 import React from "react";
 import { AppLoading, Font } from "expo";
 import { IonIcons } from "@expo/vector-icons";
-import { StyleSheet, Text, View } from "react-native";
+import TabNavigation from "./Navigation/TabNavigation";
 
 export default class App extends React.Component {
   state = {
@@ -24,11 +24,7 @@ export default class App extends React.Component {
     const { loaded } = this.state;
     if (loaded) {
       // 앱 로드 완료
-      return (
-        <View style={styles.container}>
-          <Text>Hello!</Text>
-        </View>
-      );
+      return <TabNavigation />;
     } else {
       // 앱 로드 진행중
       return (
@@ -41,12 +37,3 @@ export default class App extends React.Component {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
