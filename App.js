@@ -14,6 +14,7 @@ export default class App extends React.Component {
   handleLoaded = () => this.setState({ loaded: true });
 
   loadAssets = async () => {
+    // 앱이 로드 될 때 Font, Image같은 데이터들을 받아오도록 시킨다.
     await Font.loadAsync({
       ...IonIcons.font
     });
@@ -22,12 +23,14 @@ export default class App extends React.Component {
   render() {
     const { loaded } = this.state;
     if (loaded) {
+      // 앱 로드 완료
       return (
         <View style={styles.container}>
           <Text>Hello!</Text>
         </View>
       );
     } else {
+      // 앱 로드 진행중
       return (
         <AppLoading
           startAsync={this.loadAssets}
