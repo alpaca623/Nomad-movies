@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import { StatusBar } from "react-native";
 import { AppLoading, Font } from "expo";
 import { IonIcons } from "@expo/vector-icons";
 import MainNavigation from "./Navigation/MainNavigation";
@@ -27,6 +27,7 @@ export default class App extends React.Component {
       // 앱 로드 완료
       return (
         <>
+          <StatusBar barStyle="light-content" />
           <MainNavigation />
         </>
       );

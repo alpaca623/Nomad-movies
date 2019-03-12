@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  createStackNavigator,
-  createBottomTabNavigator,
-  createAppContainer
-} from "react-navigation";
+import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import { Platform } from "react-native";
 import TVScreen from "../Screens/TV";
 import MovieScreen from "../Screens/Movies";
 import SearchScreen from "../Screens/Search";
-import { createStack } from "../Constants/StackConfig";
+import { createStack } from "./StackConfig";
 import { BG_COLOR } from "../Constants/Colors";
 
 import TabBarIcon from "../Components/TabBarIcon";
