@@ -1,20 +1,26 @@
 import React from "react";
-import { createBottomTabNavigator, createAppContainer } from "react-navigation";
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+  createAppContainer
+} from "react-navigation";
 import { Platform } from "react-native";
 import TVScreen from "../Screens/TV";
 import MovieScreen from "../Screens/Movies";
 import SearchScreen from "../Screens/Search";
+import { createStack } from "../Constants/StackConfig";
 import { BG_COLOR } from "../Constants/Colors";
 
 import TabBarIcon from "../Components/TabBarIcon";
 
+// createBottomTabNavigator ->
 // 첫번째 매개변수는 RouteConfigs이고,
 // 두번째 매개변수는 BottomTabNavigatorConfig이다.
 // https://reactnavigation.org/docs/en/bottom-tab-navigator.html
 const TabNavigation = createBottomTabNavigator(
   {
     Movie: {
-      screen: MovieScreen,
+      screen: createStack(MovieScreen, "Movie"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <>
@@ -27,7 +33,7 @@ const TabNavigation = createBottomTabNavigator(
       }
     },
     TV: {
-      screen: TVScreen,
+      screen: createStack(TVScreen, "TV"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
@@ -38,7 +44,7 @@ const TabNavigation = createBottomTabNavigator(
       }
     },
     Search: {
-      screen: SearchScreen,
+      screen: createStack(SearchScreen, "Search"),
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <TabBarIcon
