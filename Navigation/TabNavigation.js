@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator, createAppContainer } from "react-navigation";
 import { Platform } from "react-native";
-import TVScreen from "../Screens/TV";
-import MovieScreen from "../Screens/Movies";
-import SearchScreen from "../Screens/Search";
+import TVScreen from "../Screens/TV/TVPresenter";
+import MovieScreen from "../Screens/Movies/MoviesPresenter";
+import SearchScreen from "../Screens/Search/SearchPresenter";
 import { createStack } from "./StackConfig";
 import { BG_COLOR } from "../Constants/Colors";
 
