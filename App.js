@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { AppLoading, Font } from "expo";
-import { IonIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import MainNavigation from "./Navigation/MainNavigation";
 
 export default class App extends React.Component {
@@ -17,7 +17,7 @@ export default class App extends React.Component {
   loadAssets = async () => {
     // 앱이 로드 될 때 Font, Image같은 데이터들을 받아오도록 시킨다.
     await Font.loadAsync({
-      ...IonIcons.font
+      ...Ionicons.font
     });
   };
 
