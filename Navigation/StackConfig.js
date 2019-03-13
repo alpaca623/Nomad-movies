@@ -4,7 +4,8 @@ import { BG_COLOR, WHITE } from "../Constants/Colors";
 // 모든 header는 동일하므로, Detail화면의 header도 똑같은 스타일을 주기 위해 style을 따로 만들었다.
 export const headerStyle = {
   headerStyle: {
-    backgroundColor: BG_COLOR
+    backgroundColor: BG_COLOR,
+    borderBottomWidth: 0
   },
   headerTitleStyle: {
     color: WHITE

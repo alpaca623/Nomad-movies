@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 const TVPresenter = ({ loading }) => <Text>TV Shows</Text>;
 
-export default TVPresenter;
-
 TVPresenter.prototype = {
   loading: PropTypes.bool.isRequired
 };
+
+export default TVPresenter;

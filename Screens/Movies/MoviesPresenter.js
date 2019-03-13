@@ -1,7 +1,11 @@
 import React from "react";
 import { Text } from "react-native";
 import PropTypes from "prop-types";
-const MoviesPresenter = ({ loading }) => <Text>Movies</Text>;
+import Loader from "../../Components/Loader";
+
+const MoviesPresenter = ({ loading }) => 
+  loading ? <Loader /> : <Text>Movies</Text>
+
 
 export default MoviesPresenter;
 

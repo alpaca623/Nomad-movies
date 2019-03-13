@@ -12,12 +12,12 @@ const MainNavigation = createStackNavigator(
         header: null
       }
     },
-    // Detail: {
-    //   screen: DetailScreen,
-    //   navigationOptions: {
-    //     ...headerStyle
-    //   }
-    // }
+    Detail: {
+      screen: DetailScreen,
+      navigationOptions: {
+        ...headerStyle
+      }
+    }
   },
   {
     /*******************************

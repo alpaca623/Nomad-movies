@@ -7,3 +7,5 @@ const DetailPresenter = ({ loading }) => <Text>Detail</Text>;
 DetailPresenter.prototype = {
   loading: PropTypes.bool.isRequired
 };
+
+export default DetailPresenter;
