@@ -1,10 +1,23 @@
 import React from "react";
-import { Text } from "react-native";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+
 import Loader from "../../Components/Loader";
+import MovieSlider from "../../Components/MovieSlider";
+import { BG_COLOR } from "../../Constants/Colors";
+
+const Container = styled.ScrollView`
+  background-color: ${BG_COLOR};
+`;
 
 const MoviesPresenter = ({ loading, upcoming, nowPlaying, popular }) =>
-  loading ? <Loader /> : <Text>Movies</Text>;
+  loading ? (
+    <Loader />
+  ) : (
+    <Container>
+      <MovieSlider />
+    </Container>
+  );
 
 export default MoviesPresenter;
 
