@@ -1,6 +1,7 @@
 import React from "react";
 
 import MoviesPresenter from "./MoviesPresenter";
+import Loader from "../../Components/Loader";
 import { movies } from "../../api";
 
 export default class extends React.Component {
@@ -24,21 +25,30 @@ export default class extends React.Component {
       ({
         data: { results: popular }
       } = await movies.getPopular());
-    } catch{
+    } catch {
       error = "Can't find movies";
     } finally {
       this.setState({
-        loading: false,
-        upcoming: upcoming,
-        nowPlaying: nowPlaying,
-        popular: popular,
+        loading:false,
+        upcoming,
+        nowPlaying,
+        popular,
         error
       });
     }
   }
 
   render() {
-    const { loading } = this.state;
-    return <MoviesPresenter loading={loading} />;
+    const { loading, upcoming, nowPlaying, popular } = this.state;
+    return loading ? (
+      <Loader />
+    ) : (
+      <MoviesPresenter
+        loading={loading}
+        upcoming={upcoming}
+        nowPlaying={nowPlaying}
+        popular={popular}
+      />
+    );
   }
 }
