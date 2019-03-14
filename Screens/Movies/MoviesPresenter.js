@@ -34,7 +34,7 @@ const MoviesPresenter = ({ loading, upcoming, nowPlaying, popular }) =>
         </Section>
       ) : null}
       {popular ? (
-        <Section title="Upcoming Movies" horizontal={false}>
+        <Section title="Popular" horizontal={false}>
           {popular
             .filter(movie => movie.poster_path !== null)
             .map(movie => (

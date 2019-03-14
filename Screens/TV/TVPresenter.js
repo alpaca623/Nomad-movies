@@ -11,7 +11,7 @@ const Container = styled.ScrollView`
   background-color: ${BG_COLOR};
 `;
 
-const TVPresenter = ({ loading, popular, topRated, airingToday }) =>
+const TVPresenter = ({ loading, popular, onAirWeek, airingToday }) =>
   loading ? (
     <Loader />
   ) : (
@@ -31,9 +31,24 @@ const TVPresenter = ({ loading, popular, topRated, airingToday }) =>
             ))}
         </Section>
       ) : null}
-      {topRated ? (
-        <Section title="Top Rated">
-          {topRated
+      {popular ? (
+        <Section title="Popular">
+          {popular
+            .filter(tv => tv.poster_path !== null)
+            .map(tv => (
+              <MovieItem
+                key={tv.id}
+                id={tv.id}
+                image={tv.poster_path}
+                voteAvg={tv.vote_average}
+                title={tv.name}
+              />
+            ))}
+        </Section>
+      ) : null}
+      {onAirWeek ? (
+        <Section title="On Air Week">
+          {onAirWeek
             .filter(tv => tv.poster_path !== null)
             .map(tv => (
               <MovieItem

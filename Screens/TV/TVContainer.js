@@ -8,24 +8,23 @@ export default class TVContainer extends React.Component {
   state = {
     loading: true,
     popular: null,
-    topRated: null,
+    onAirWeek: null,
     airingToday: null,
     error: null
   };
 
   async componentDidMount() {
-    let loading, popular, topRated, airingToday;
+    let loading, popular, onAirWeek, airingToday;
     try {
       ({
         data: { results: popular }
       } = await tv.getPopular());
       ({
-        data: { results: topRated }
-      } = await tv.getTopRated());
+        data: { results: onAirWeek }
+      } = await tv.getOnAirWeek());
       ({
         data: { results: airingToday }
       } = await tv.getPopular());
-      console.log(popular);
     } catch (e) {
       console.log(e);
       error = "can't find tv shows";
@@ -33,20 +32,20 @@ export default class TVContainer extends React.Component {
       this.setState({
         loading: false,
         popular,
-        topRated,
+        onAirWeek,
         airingToday
       });
     }
   }
   render() {
-    const { loading, popular, topRated, airingToday } = this.state;
+    const { loading, popular, onAirWeek, airingToday } = this.state;
     return loading ? (
       <Loader />
     ) : (
       <TVPresenter
         loading={loading}
         popular={popular}
-        topRated={topRated}
+        onAirWeek={onAirWeek}
         airingToday={airingToday}
       />
     );
