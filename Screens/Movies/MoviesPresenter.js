@@ -15,15 +15,15 @@ const MoviesPresenter = ({ loading, upcoming, nowPlaying, popular }) =>
     <Loader />
   ) : (
     <Container>
-      <MovieSlider />
+      <MovieSlider movies={nowPlaying} />
     </Container>
   );
 
-export default MoviesPresenter;
-
-MoviesPresenter.prototype = {
+MoviesPresenter.propTypes = {
   loading: PropTypes.bool.isRequired,
   upcoming: PropTypes.array,
   nowPlaying: PropTypes.array,
   popular: PropTypes.array
 };
+
+export default MoviesPresenter;
