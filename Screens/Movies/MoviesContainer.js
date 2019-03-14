@@ -1,27 +1,42 @@
 import React from "react";
 
 import MoviesPresenter from "./MoviesPresenter";
-import { movieApi } from "../../api";
+import { movies } from "../../api";
 
 export default class extends React.Component {
   state = {
-    loading: true
+    loading: true,
+    upcoming: null,
+    nowPlaying: null,
+    popular: null,
+    error: null
   };
 
-  async componentDidMount(){
-    try{
-      const upcoming = await movieApi.getUpcoming();
-      // const nowPlaying = await movieApi.getNowPlaying();
-      // const popular = await movieApi.getPopular();
-      // const topRated = await movieApi.getTopRated();
-    }catch{
+  async componentDidMount() {
+    try {
+      const {
+        data: { results: upcoming }
+      } = await movies.getUpcoming();
+      const {
+        data: { results: nowPlaying }
+      } = await movies.getNowPlaying();
+      const {
+        data: { results: popular }
+      } = await movies.getPopular();
       this.setState({
-        error:"Can't find movies",
+        upcoming: upcoming,
+        nowPlaying: nowPlaying,
+        popular: popular
       });
-    }finally{
+    } catch (e) {
+      console.log(e);
       this.setState({
-        loading:false
-      })
+        error: "Can't find movies"
+      });
+    } finally {
+      this.setState({
+        loading: false
+      });
     }
   }
 
