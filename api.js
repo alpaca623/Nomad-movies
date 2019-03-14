@@ -25,7 +25,7 @@ export const movies = {
         append_to_response: "videos"
       }
     }),
-  search: searchTerm =>
+  searchMovie: searchTerm =>
     api.get("search/movie", {
       params: {
         query: encodeURIComponent(searchTerm)
@@ -43,7 +43,7 @@ export const tv = {
         append_to_response: "videos"
       }
     }),
-  search: searchTerm =>
+  searchTv: searchTerm =>
     api.get("search/tv", {
       params: {
         query: encodeURIComponent(searchTerm)
