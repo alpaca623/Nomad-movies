@@ -13,29 +13,26 @@ export default class extends React.Component {
   };
 
   async componentDidMount() {
+    let upcoming, nowPlaying, popular, error;
     try {
-      const {
+      ({
         data: { results: upcoming }
-      } = await movies.getUpcoming();
-      const {
+      } = await movies.getUpcoming());
+      ({
         data: { results: nowPlaying }
-      } = await movies.getNowPlaying();
-      const {
+      } = await movies.getNowPlaying());
+      ({
         data: { results: popular }
-      } = await movies.getPopular();
-      this.setState({
-        upcoming: upcoming,
-        nowPlaying: nowPlaying,
-        popular: popular
-      });
-    } catch (e) {
-      console.log(e);
-      this.setState({
-        error: "Can't find movies"
-      });
+      } = await movies.getPopular());
+    } catch{
+      error = "Can't find movies";
     } finally {
       this.setState({
-        loading: false
+        loading: false,
+        upcoming: upcoming,
+        nowPlaying: nowPlaying,
+        popular: popular,
+        error
       });
     }
   }
