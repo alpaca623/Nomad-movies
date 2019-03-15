@@ -22,11 +22,14 @@ const TVPresenter = ({ loading, popular, onAirWeek, airingToday }) =>
             .filter(tv => tv.poster_path !== null)
             .map(tv => (
               <MovieItem
+                isMovie={false}
                 key={tv.id}
                 id={tv.id}
-                image={tv.poster_path}
+                posterPhoto={tv.poster_path}
                 voteAvg={tv.vote_average}
                 title={tv.name}
+                overview={tv.overview}
+                
               />
             ))}
         </Section>
@@ -37,11 +40,13 @@ const TVPresenter = ({ loading, popular, onAirWeek, airingToday }) =>
             .filter(tv => tv.poster_path !== null)
             .map(tv => (
               <MovieItem
+                isMovie={false}
                 key={tv.id}
                 id={tv.id}
-                image={tv.poster_path}
+                posterPhoto={tv.poster_path}
                 voteAvg={tv.vote_average}
                 title={tv.name}
+                overview={tv.overview}
               />
             ))}
         </Section>
@@ -52,11 +57,13 @@ const TVPresenter = ({ loading, popular, onAirWeek, airingToday }) =>
             .filter(tv => tv.poster_path !== null)
             .map(tv => (
               <MovieItem
+                isMovie={false}
                 key={tv.id}
                 id={tv.id}
-                image={tv.poster_path}
+                posterPhoto={tv.poster_path}
                 voteAvg={tv.vote_average}
                 title={tv.name}
+                overview={tv.overview}
               />
             ))}
         </Section>

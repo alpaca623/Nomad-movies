@@ -52,7 +52,7 @@ const TabNavigation = createBottomTabNavigator(
     }
   },
   {
-    initialRouteName : 'Search',
+    // initialRouteName : 'Search',
     tabBarOptions: {
       showLabel: false,
       style: {

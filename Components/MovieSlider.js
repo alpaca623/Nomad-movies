@@ -28,8 +28,8 @@ const MovieSlider = ({ movies }) =>
             <MovieSlide
               overview={movie.overview}
               id={movie.id}
-              backdrop={movie.backdrop_path}
-              poster={movie.poster_path}
+              backdropPhoto={movie.backdrop_path}
+              posterPhoto={movie.poster_path}
               title={movie.title}
               voteAvg={movie.vote_average}
             />

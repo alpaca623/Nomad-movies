@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withNavigation } from "react-navigation";
+
 import makePhotoUrl from "../makePhotoUrl";
 import Layout from "../Constants/Layout";
 import MoviePoster from "./MoviePoster";
@@ -30,7 +32,7 @@ const Content = styled.View`
 
 const Item = styled.View`
   width: 60%;
-  align-items:flex-start;
+  align-items: flex-start;
 `;
 
 const Title = styled.Text`
@@ -46,8 +48,8 @@ const Overview = styled.Text`
 `;
 
 const BtnComponent = styled.TouchableOpacity`
-  padding:5px;
-  border-radius:1.5;
+  padding: 5px;
+  border-radius: 1.5;
   background-color: #e74c3c;
 `;
 
@@ -55,20 +57,40 @@ const BtnText = styled.Text`
   color: ${WHITE};
 `;
 
-const MovieSlide = ({ id, title, voteAvg, overview, backdrop, poster }) => (
+const MovieSlide = ({
+  id,
+  title,
+  voteAvg,
+  overview,
+  backdropPhoto,
+  posterPhoto,
+  navigation
+}) => (
   <Container>
-    <BgImage source={{ uri: makePhotoUrl(backdrop) }} />
+    <BgImage source={{ uri: makePhotoUrl(backdropPhoto) }} />
     <Content>
-      <MoviePoster path={poster} />
+      <MoviePoster path={posterPhoto} />
       <Item>
         <Title>{title}</Title>
-        <MovieRating vote={voteAvg}/>
+        <MovieRating vote={voteAvg} />
         <Overview>
           {overview.length > 117
             ? `${overview.substring(0, 120)}...`
             : overview}
         </Overview>
-        <BtnComponent>
+        <BtnComponent
+          onPress={() =>
+            navigation.navigate("Detail", {
+              id: id,
+              isMovie: true,
+              title,
+              voteAvg,
+              overview,
+              backdropPhoto,
+              posterPhoto
+            })
+          }
+        >
           <BtnText>Show Detail</BtnText>
         </BtnComponent>
       </Item>
@@ -81,8 +103,8 @@ MovieSlide.propTypes = {
   title: PropTypes.string.isRequired,
   voteAvg: PropTypes.number.isRequired,
   overview: PropTypes.string.isRequired,
-  backdrop: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired
+  backdropPhoto: PropTypes.string.isRequired,
+  posterPhoto: PropTypes.string.isRequired
 };
 
-export default MovieSlide;
+export default withNavigation(MovieSlide);

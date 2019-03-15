@@ -26,8 +26,10 @@ const MoviesPresenter = ({ loading, upcoming, nowPlaying, popular }) =>
               <MovieItem
                 key={movie.id}
                 id={movie.id}
-                image={movie.poster_path}
+                posterPhoto={movie.poster_path}
+                backdropPhoto={movie.backdrop_path}
                 voteAvg={movie.vote_average}
+                overview={movie.overview ? movie.overview : null}
                 title={movie.title}
               />
             ))}
@@ -41,7 +43,8 @@ const MoviesPresenter = ({ loading, upcoming, nowPlaying, popular }) =>
               <MovieItem
                 key={movie.id}
                 id={movie.id}
-                image={movie.poster_path}
+                posterPhoto={movie.poster_path}
+                backdropPhoto={movie.backdrop_path}
                 voteAvg={movie.vote_average}
                 title={movie.title}
                 overview={movie.overview ? movie.overview : null}

@@ -1,6 +1,6 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import TabNavigation from "./TabNavigation";
-import DetailScreen from "../Screens/Detail/DetailPresenter";
+import DetailScreen from "../Screens/Detail/DetailContainer";
 import { headerStyle } from "./StackConfig";
 
 const MainNavigation = createStackNavigator(
@@ -23,7 +23,7 @@ const MainNavigation = createStackNavigator(
     /*******************************
      * https://reactnavigation.org/docs/en/stack-navigator.html 참고
      * header가 렌더링 되는 방법을 정의한다. float, screen, none 세가지가 있다.
-    *******************************/
+     *******************************/
     headerMode: "screen",
     headerBackTitleVisible: false
   }
